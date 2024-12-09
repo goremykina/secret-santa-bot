@@ -191,7 +191,7 @@ bot.callbackQuery(/select-partner-([0-9]+)/, selectPartner);
 
 // Handle other messages.
 bot.on('message', async (ctx) => {
-    const name = ctx.message.text;
+    const name = ctx.message.text?.trim();
     if (!name) {
         await ctx.reply(`Is it so difficult to write a name? 🤬`);
         return;
