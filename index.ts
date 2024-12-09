@@ -61,7 +61,7 @@ const list = async (ctx: CommandContext<Context>) => {
     });
 
     const reply = pairs.map(pair => pair.length > 1 ? pair.join(' ❤️ ') : pair[0]).join('\n');
-    await ctx.reply(reply);
+    await ctx.reply(reply || 'There are no participants yet');
 
     const chatId = ctx.chat.id && ctx.chat.id.toString();
     const userName = chatId && chatIdToUser.has(chatId) ? chatIdToUser.get(chatId)!.name : 'Unknown';
